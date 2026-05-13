@@ -24,7 +24,7 @@ export default function SobreMi() {
         {/* Columna izquierda — Foto */}
         <div className={styles.imageCol}>
           <img
-            src="/src/assets/images/marta-transparente.png"
+            src="/images/marta-transparente.png"
             alt="Logotipo — Diseño Gráfico"
             className={styles.photo}
           />

@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 
 // 🔧 Reemplaza con tus credenciales de EmailJS
-const EMAILJS_SERVICE_ID = "TU_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "TU_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "TU_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 type Estado = "idle" | "enviando" | "exitoso" | "error";
 

@@ -21,7 +21,7 @@ export const PROYECTOS: Proyecto[] = [
     titulo: "Maxi Alteño Melón",
     cliente: "Productos Alteño S.A. de C.V.",
     categoria: "packaging",
-    imagen: "/src/assets/images/dummy-bolsas-melon-01.png",
+    imagen: "/images/dummy-bolsas-melon-01.png",
     descripcion:
       "Diseño de bolsa para paletas de caramelo sabor melón. Preparación de archivo para pre-prensa de flexografía.",
     tags: ["Packaging", "Flexografía", "Alteño"],
@@ -31,7 +31,7 @@ export const PROYECTOS: Proyecto[] = [
     titulo: "Super Alteño Melón",
     cliente: "Productos Alteño S.A. de C.V.",
     categoria: "packaging",
-    imagen: "/src/assets/images/dummy-bolsas-melon-02.png",
+    imagen: "/images/dummy-bolsas-melon-02.png",
     descripcion:
       "Variante de empaque para la línea Super Alteño. Adaptación de personaje y composición para nuevo formato.",
     tags: ["Packaging", "Flexografía", "Alteño"],
@@ -41,7 +41,7 @@ export const PROYECTOS: Proyecto[] = [
     titulo: "Locos Picositos",
     cliente: "Productos Alteño S.A. de C.V.",
     categoria: "packaging",
-    imagen: "/src/assets/images/dummy-bolsas-melon-03.png",
+    imagen: "/images/dummy-bolsas-melon-03.png",
     descripcion:
       "Diseño de bolsa para dulces confitados con chile. Ilustración de personajes y composición de producto.",
     tags: ["Packaging", "Ilustración", "Alteño"],
@@ -51,9 +51,9 @@ export const PROYECTOS: Proyecto[] = [
     titulo: "Logotipo Express Gaby",
     cliente: "Productos Alteño S.A. de C.V.",
     categoria: "branding",
-    imagen: "/src/assets/images/logotipo-transporte.png",
+    imagen: "/images/logotipo-transporte.png",
     descripcion:
-      "Diseño de Logotipo Empresa transportista de Grupo Alteño “Express Gaby”",
+      "Diseño de Logotipo Empresa transportista de Grupo Alteño \"Express Gaby\"",
     tags: ["Branding", "Logotipo", "Alteño"],
   },
   {
@@ -61,7 +61,7 @@ export const PROYECTOS: Proyecto[] = [
     titulo: "Tarjetas de Presentación",
     cliente: "Productos Alteño S.A. de C.V.",
     categoria: "branding",
-    imagen: "/src/assets/images/tarjetas-presentacion.jpg",
+    imagen: "/images/tarjetas-presentacion.jpg",
     descripcion:
       "Diseño de tarjetas de presentación para ejecutivos de Grupo Alteño y Golosinas GMC.",
     tags: ["Branding", "Papelería", "Alteño"],
@@ -71,7 +71,7 @@ export const PROYECTOS: Proyecto[] = [
     titulo: "Personajes Melón — Serie 1",
     cliente: "Productos Alteño S.A. de C.V.",
     categoria: "ilustracion",
-    imagen: "/src/assets/images/propuestas-personajes-01.png",
+    imagen: "/images/propuestas-personajes-01.png",
     descripcion:
       "Propuesta de personajes ilustrados para la línea de paletas Melón. Diferentes poses y expresiones.",
     tags: ["Ilustración", "Personajes", "Alteño"],
@@ -81,7 +81,7 @@ export const PROYECTOS: Proyecto[] = [
     titulo: "Personajes Melón — Serie 2",
     cliente: "Productos Alteño S.A. de C.V.",
     categoria: "ilustracion",
-    imagen: "/src/assets/images/propuestas-personajes-02.png",
+    imagen: "/images/propuestas-personajes-02.png",
     descripcion:
       "Segunda serie de personajes con nuevas variaciones de estilo y actividades para la mascota de la marca.",
     tags: ["Ilustración", "Personajes", "Alteño"],
@@ -91,7 +91,7 @@ export const PROYECTOS: Proyecto[] = [
     titulo: "Personajes Línea Completa",
     cliente: "Productos Alteño S.A. de C.V.",
     categoria: "ilustracion",
-    imagen: "/src/assets/images/propuestas-personajes-03.png",
+    imagen: "/images/propuestas-personajes-03.png",
     descripcion:
       "Familia completa de personajes para los diferentes productos de la línea Alteño: melón, pepino, plátano y más.",
     tags: ["Ilustración", "Personajes", "Alteño"],
@@ -99,9 +99,9 @@ export const PROYECTOS: Proyecto[] = [
 ];
 
 export const CATEGORIAS: { value: Categoria; label: string }[] = [
-  { value: "todos", label: "Todos" },
-  { value: "packaging", label: "Packaging" },
-  { value: "branding", label: "Branding" },
+  { value: "todos",       label: "Todos" },
+  { value: "packaging",   label: "Packaging" },
+  { value: "branding",    label: "Branding" },
   { value: "ilustracion", label: "Ilustración" },
-  { value: "editorial", label: "Editorial" },
+  { value: "editorial",   label: "Editorial" },
 ];

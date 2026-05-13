@@ -26,7 +26,7 @@ export default function Footer() {
         <div className={styles.brand}>
           <a href="#hero" className={styles.logoLink}>
             <img
-              src="/src/assets/images/logotipe.png"
+              src="/images/logotipe.png"
               alt="Martha García Luque — Diseño Gráfico"
               className={styles.logo}
               width={64}

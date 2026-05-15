@@ -15,11 +15,22 @@ export interface Proyecto {
   tags: string[];
 }
 
-const imagenes = import.meta.glob("../assets/images/*.(png|jpg|jpeg|webp)", {
+// proyectos.ts
+
+const imagenesPng = import.meta.glob("../assets/images/*.png", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
 
+const imagenesJpg = import.meta.glob("../assets/images/*.jpg", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const imagenes: Record<string, string> = {
+  ...imagenesPng,
+  ...imagenesJpg,
+};
 export const PROYECTOS: Proyecto[] = [
   {
     id: "maxi-melon",

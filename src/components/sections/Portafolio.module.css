@@ -12,7 +12,7 @@
   gap: var(--space-10);
 }
 
-/* Encabezado */
+/* ── Encabezado ─────────────────────────────── */
 .header {
   display: flex;
   flex-direction: column;
@@ -54,10 +54,9 @@
   color: var(--color-text-muted);
   max-width: 52ch;
   line-height: 1.7;
-  text-align: center;
 }
 
-/* Filtros */
+/* ── Filtros ─────────────────────────────────── */
 .filtros {
   display: flex;
   gap: var(--space-2);
@@ -71,14 +70,14 @@
   color: var(--color-text-muted);
   background-color: var(--color-bg);
   border: 1px solid var(--color-divider);
-  padding: var(--space-2) var(--space-5);
+  padding: var(--space-2) var(--space-6); /* ← antes: var(--space-5), ahora: var(--space-6) */
   border-radius: var(--radius-full);
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all var(--transition-interactive);
 }
 
 .filtro:hover {
-  border-color: var(--color-primary-light);
+  border-color: var(--color-primary);
   color: var(--color-primary);
 }
 
@@ -93,83 +92,100 @@
   color: #ffffff;
 }
 
-/* Grid */
+/* ── Grid ────────────────────────────────────── */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
-/* Card */
+/* ── Card ────────────────────────────────────── */
 .card {
-  background: none;
-  border: none;
-  padding: 0;
+  all: unset;
   cursor: pointer;
-  text-align: left;
+  display: block;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-divider);
-  transition:
-    transform var(--transition),
-    box-shadow var(--transition);
+  position: relative;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-}
-
+/* ── Image wrapper ───────────────────────────── */
 .imageWrapper {
   position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  aspect-ratio: 4/3;
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-offset);
+  border-radius: var(--radius-xl);
 }
 
 .imagen {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: var(--space-4);
-  transition: transform 0.4s ease;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover .imagen {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
+/* ── Overlay ─────────────────────────────────── */
 .overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(58, 191, 177, 0.85);
+  /* Gradiente solo en la parte inferior para que la imagen sea visible arriba */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.3) 45%,
+    transparent 70%
+  );
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  padding: var(--space-5);
   opacity: 0;
-  transition: opacity var(--transition);
+  transform: translateY(6px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .card:hover .overlay {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.overlayText {
-  color: #ffffff;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.cardInfo {
-  padding: var(--space-4) var(--space-5);
+.overlayContent {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  width: 100%;
 }
 
+.overlayTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.overlayHint {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ── Tags ────────────────────────────────────── */
 .cardTags {
   display: flex;
   flex-wrap: wrap;
@@ -178,46 +194,58 @@
 
 .tag {
   font-size: var(--text-xs);
-  color: var(--color-primary);
-  background-color: var(--color-primary-highlight);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
   padding: 2px var(--space-2);
   border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.cardTitle {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-text);
-  line-height: 1.2;
-}
-
-.cardCliente {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-}
-
-/* Modal */
+/* ── Modal ───────────────────────────────────── */
 .modalBackdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-6);
+  /* Animación de entrada */
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal {
   background-color: var(--color-bg);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  max-width: 700px;
+  max-width: 680px;
   width: 100%;
   position: relative;
   box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .modalClose {
@@ -225,7 +253,7 @@
   top: var(--space-4);
   right: var(--space-4);
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.45);
   color: #ffffff;
   border-radius: var(--radius-full);
   width: 36px;
@@ -234,19 +262,30 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color var(--transition);
+  border: none;
+  transition: background-color var(--transition-interactive);
 }
 
 .modalClose:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modalImageWrapper {
+  width: 100%;
+  background-color: var(--color-surface-offset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  min-height: 280px;
 }
 
 .modalImage {
-  width: 100%;
-  height: 340px;
+  max-height: 360px;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
-  padding: var(--space-4);
-  transition: transform 0.4s ease;
+  display: block;
 }
 
 .modalContent {
@@ -254,6 +293,20 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  border-top: 1px solid var(--color-divider);
+}
+
+/* Tags dentro del modal — con color en lugar de blanco */
+.modalTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.modalTags .tag {
+  color: var(--color-primary);
+  background-color: var(--color-primary-highlight);
+  border: 1px solid rgba(58, 191, 177, 0.25);
 }
 
 .modalTitle {
@@ -261,6 +314,7 @@
   font-size: var(--text-xl);
   font-weight: 600;
   color: var(--color-text);
+  line-height: 1.2;
 }
 
 .modalCliente {
@@ -272,10 +326,10 @@
 .modalDesc {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-/* Responsive */
+/* ── Responsive ──────────────────────────────── */
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -285,9 +339,19 @@
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .modalImageWrapper {
+    min-height: 200px;
+    padding: var(--space-4);
   }
 
   .modalImage {
-    height: 220px;
+    max-height: 240px;
+  }
+
+  .modalContent {
+    padding: var(--space-4);
   }
 }

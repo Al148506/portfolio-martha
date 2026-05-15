@@ -35,7 +35,7 @@ const INFO_ITEMS = [
   {
     icon: <MapPin size={20} />,
     label: "Ubicación",
-    valor: "Aguascalientes, México",
+    valor: "Cd. Sahagún, Hidalgo, México",
     href: null,
   },
   {

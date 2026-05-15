@@ -94,7 +94,7 @@ export default function Footer() {
             © {year} Martha Alicia García Luque. Todos los derechos reservados.
           </p>
           <p className={styles.made}>
-            L.D.G. · Aguascalientes, México
+            Diseño Gráfico · Cd. Sahagún, Hidalgo
           </p>
         </div>
       </div>

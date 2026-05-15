@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import styles from './Portafolio.module.css'
-import { PROYECTOS, CATEGORIAS, type Categoria } from '../../data/proyectos'
-import { X } from 'lucide-react'
+import { useState } from "react";
+import styles from "./Portafolio.module.css";
+import { PROYECTOS, CATEGORIAS, type Categoria } from "../../data/proyectos";
+import { X, ArrowUpRight } from "lucide-react";
 
 export default function Portafolio() {
-  const [activa, setActiva] = useState<Categoria>('todos')
-  const [seleccionado, setSeleccionado] = useState<typeof PROYECTOS[0] | null>(null)
+  const [activa, setActiva] = useState<Categoria>("todos");
+  const [seleccionado, setSeleccionado] = useState<
+    (typeof PROYECTOS)[0] | null
+  >(null);
 
-  const filtrados = activa === 'todos'
-    ? PROYECTOS
-    : PROYECTOS.filter(p => p.categoria === activa)
+  const filtrados =
+    activa === "todos"
+      ? PROYECTOS
+      : PROYECTOS.filter((p) => p.categoria === activa);
 
   return (
     <section id="portafolio" className={styles.section}>
@@ -22,17 +25,17 @@ export default function Portafolio() {
             Proyectos que <em>hablan</em> por sí solos
           </h2>
           <p className={styles.subtitle}>
-            Una selección de trabajos realizados para empresas reales
-            con resultados concretos.
+            Una selección de trabajos realizados para empresas reales con
+            resultados concretos.
           </p>
         </div>
 
         {/* Filtros */}
         <div className={styles.filtros}>
-          {CATEGORIAS.map(cat => (
+          {CATEGORIAS.map((cat) => (
             <button
               key={cat.value}
-              className={`${styles.filtro} ${activa === cat.value ? styles.filtroActivo : ''}`}
+              className={`${styles.filtro} ${activa === cat.value ? styles.filtroActivo : ""}`}
               onClick={() => setActiva(cat.value)}
             >
               {cat.label}
@@ -42,7 +45,7 @@ export default function Portafolio() {
 
         {/* Grid de proyectos */}
         <div className={styles.grid}>
-          {filtrados.map(proyecto => (
+          {filtrados.map((proyecto, index) => (
             <button
               key={proyecto.id}
               className={styles.card}
@@ -54,26 +57,32 @@ export default function Portafolio() {
                   src={proyecto.imagen}
                   alt={proyecto.titulo}
                   className={styles.imagen}
-                  loading="lazy"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  decoding="async"
                   width={400}
                   height={300}
                 />
+                {/* Overlay que sube desde abajo */}
                 <div className={styles.overlay}>
-                  <span className={styles.overlayText}>Ver proyecto</span>
+                  <div className={styles.overlayContent}>
+                    <div className={styles.cardTags}>
+                      {proyecto.tags.map((tag) => (
+                        <span key={tag} className={styles.tag}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className={styles.overlayTitle}>{proyecto.titulo}</h3>
+                    <span className={styles.overlayHint}>
+                      Ver proyecto <ArrowUpRight size={14} />
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className={styles.cardInfo}>
-                <div className={styles.cardTags}>
-                  {proyecto.tags.map(tag => (
-                    <span key={tag} className={styles.tag}>{tag}</span>
-                  ))}
-                </div>
-                <h3 className={styles.cardTitle}>{proyecto.titulo}</h3>
-                <p className={styles.cardCliente}>{proyecto.cliente}</p>
               </div>
             </button>
           ))}
         </div>
+
       </div>
 
       {/* Modal de detalle */}
@@ -87,7 +96,7 @@ export default function Portafolio() {
         >
           <div
             className={styles.modal}
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               className={styles.modalClose}
@@ -96,17 +105,24 @@ export default function Portafolio() {
             >
               <X size={20} />
             </button>
-            <img
-              src={seleccionado.imagen}
-              alt={seleccionado.titulo}
-              className={styles.modalImage}
-              width={700}
-              height={500}
-            />
+
+            <div className={styles.modalImageWrapper}>
+              <img
+                src={seleccionado.imagen}
+                alt={seleccionado.titulo}
+                className={styles.modalImage}
+                decoding="async"
+                width={700}
+                height={500}
+              />
+            </div>
+
             <div className={styles.modalContent}>
-              <div className={styles.cardTags}>
-                {seleccionado.tags.map(tag => (
-                  <span key={tag} className={styles.tag}>{tag}</span>
+              <div className={styles.modalTags}>
+                {seleccionado.tags.map((tag) => (
+                  <span key={tag} className={styles.tag}>
+                    {tag}
+                  </span>
                 ))}
               </div>
               <h3 className={styles.modalTitle}>{seleccionado.titulo}</h3>
@@ -117,5 +133,5 @@ export default function Portafolio() {
         </div>
       )}
     </section>
-  )
+  );
 }

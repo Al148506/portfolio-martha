@@ -2,11 +2,6 @@
 
 > Sitio web de presentación de servicios de diseño gráfico freelance para la Lic. Martha Alicia García Luque.
 
-[
-[
-[
-[
-
 ***
 
 ## 📌 Descripción

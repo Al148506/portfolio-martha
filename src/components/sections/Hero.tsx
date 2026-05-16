@@ -57,7 +57,7 @@ export default function Hero() {
         <div className={styles.imageWrapper}>
           <div className={styles.imageBg} />
           <img
-            src="/images/logotipe.png"
+            src="/images/logo.png"
             alt="Diseño de packaging — Paletas Alteño"
             className={styles.heroImage}
             width={520}

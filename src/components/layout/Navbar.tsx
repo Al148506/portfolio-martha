@@ -29,7 +29,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#hero" className={styles.logo}>
           <img
-            src="/images/logotipe.png"
+            src="/images/logo.png"
             alt="Martha García Luque — Diseño Gráfico"
             className={styles.logoImg}
             width={140}

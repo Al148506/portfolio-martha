@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# 🎨 Martha Alicia García Luque — Portafolio Freelance
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Sitio web de presentación de servicios de diseño gráfico freelance para la Lic. Martha Alicia García Luque.
 
-Currently, two official plugins are available:
+[
+[
+[
+[
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+***
 
-## React Compiler
+## 📌 Descripción
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Sitio web desarrollado para la **Lic. en Diseño Gráfico Martha Alicia García Luque**, con el objetivo de presentar su perfil profesional, portafolio de trabajos y canales de contacto para la contratación de servicios freelance.
 
-## Expanding the ESLint configuration
+El proyecto fue construido con un stack moderno orientado a rendimiento, velocidad de desarrollo y mantenibilidad, garantizando una experiencia visual fluida y responsiva en todos los dispositivos.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+***
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Características
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- 📁 Presentación del portafolio de proyectos
+- 👩‍💼 Sección de perfil y servicios ofrecidos
+- 📬 Formulario o sección de contacto directo
+- 📱 Diseño completamente responsivo (mobile-first)
+- ⚡ Carga ultrarrápida gracias a Vite
+- 🌐 Desplegado y disponible en producción vía Vercel
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+***
+
+## 🛠️ Tecnologías utilizadas
+
+| Tecnología | Versión | Uso |
+|---|---|---|
+| [React](https://react.dev) | 18+ | Librería de UI basada en componentes |
+| [Vite](https://vitejs.dev) | 5+ | Bundler y servidor de desarrollo |
+| [TypeScript](https://www.typescriptlang.org) | 5+ | Tipado estático para mayor robustez |
+| [Vercel](https://vercel.com) | — | Hosting y despliegue continuo (CD) |
+
+***
+
+## 🚀 Instalación y uso local
+
+Sigue estos pasos para correr el proyecto en tu máquina:
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/al148506/portfolio-martha.git
+cd portfolio-martha
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Instalar dependencias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Iniciar el servidor de desarrollo
+
+```bash
+npm run dev
+```
+
+Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+
+### 4. Generar build de producción
+
+```bash
+npm run build
+```
+
+***
+
+## 📂 Estructura del proyecto
+
+```
+├── public/             # Recursos estáticos (favicon, imágenes públicas)
+├── src/
+│   ├── assets/         # Imágenes, fuentes y recursos del proyecto
+│   ├── components/     # Componentes reutilizables de UI
+│   ├── features/       # Secciones principales del sitio
+│   ├── App.tsx         # Componente raíz y rutas
+│   └── main.tsx        # Punto de entrada de la aplicación
+├── index.html
+├── vite.config.ts
+└── tsconfig.json
+```
+
+***
+
+## 🌐 Despliegue
+
+El sitio está desplegado en **Vercel** con integración continua desde la rama `main`. Cada push al repositorio genera automáticamente un nuevo despliegue en producción.
+
+🔗 **Sitio en producción:** [https://portfolio-martha.vercel.app/](https://portfolio-martha.vercel.app/)
+
+***
+
+## 👩‍🎨 Sobre la cliente
+
+**Lic. Martha Alicia García Luque** es diseñadora gráfica freelance con experiencia en identidad de marca, diseño editorial y material publicitario. Este sitio funciona como su carta de presentación digital para la captación de nuevos clientes.
+
+***
+
+## 📄 Licencia
+
+Este proyecto es de uso privado. Todos los derechos del diseño y contenido pertenecen a la Lic. Martha Alicia García Luque.
